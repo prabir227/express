@@ -11,4 +11,5 @@ noteRouter.post('/',auth, createNotes);
 noteRouter.put('/:id',auth,updateNotes);
 
 noteRouter.delete('/:id',auth,deleteNotes);
+
 module.exports = noteRouter

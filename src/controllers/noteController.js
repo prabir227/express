@@ -3,15 +3,15 @@ const noteModel = require('../models/note');
 const createNotes = async (req, res) => {
     const{title, content} = req.body;
 
-    const newNode = new noteModel({
+    const newNote = new noteModel({
         title : title,
         content : content,
         userId : req.userId
     })
 
     try{
-        await newNode.save();
-        res.status(201).json(newNode);
+        await newTode.save();
+        res.status(201).json(newNote);
     }
     catch(error){
         console.log(error);
@@ -38,7 +38,19 @@ const updateNotes = async (req, res) => {
 
 };
 
-const deleteNotes = async (req, res) => {};
+const deleteNotes = async (req, res) => {
+    const id = req.params.id;
+
+    try{
+        await noteModel.findByIdAndDelete(id);
+        res.status(200).json({message: "Note deleted successfully"});
+
+    }
+    catch(error){
+        console.log(error);
+        res.status(500).json({message: "Something went wrong"});
+    }
+};
 
 const getNotes = async (req, res) => {
     try{

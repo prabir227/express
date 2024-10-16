@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const SECRETKEY = 'notesapi';
+const SECRETKEY = process.env.SECRET_KEY;
 
 const auth = async (req, res, next) => {
     try {

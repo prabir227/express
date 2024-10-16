@@ -1,6 +1,6 @@
 const userModel = require('../models/user');
 const bcrypt = require('bcrypt');
-const SECRETKEY = 'notesapi';
+const SECRETKEY = process.env.SECRET_KEY;
 const jwt = require('jsonwebtoken');
 const signUp = async (req,res)=>{
 
